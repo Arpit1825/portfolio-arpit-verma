@@ -2,7 +2,6 @@ import { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { FiMail, FiPhone, FiLinkedin, FiGithub, FiSend, FiCheck, FiCopy } from 'react-icons/fi';
-import emailjs from '@emailjs/browser';
 
 const contactInfo = [
   { icon: FiMail, label: 'Email', value: 'av6821246@gmail.com', href: 'mailto:av6821246@gmail.com', copyable: true },
