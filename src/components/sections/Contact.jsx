@@ -26,14 +26,14 @@ export default function Contact() {
   try {
     setStatus("sending");
 
-    const response = await fetch(
-      "http://localhost:5000/api/contact",
+     const response = await fetch(
+      "https://portfolio-arpit-verma.onrender.com/api/contact",
       {
         method: "POST",
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify(form)
+        body: JSON.stringify(form),
       }
     );
 
