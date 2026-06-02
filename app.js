@@ -18,6 +18,11 @@ console.log("Error detected :",err);
 
 app.use('/api/contact',contactRoute);
 
+app.get("/", (req, res) => {
+  res.send("Backend is running successfully 🚀");
+});
+
+
 app.listen(5000, () => {
     console.log("Server Running on Port 5000");
 });
