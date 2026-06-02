@@ -1,7 +1,9 @@
 const express = require("express");
 const router = express.Router();
-const transporter = require("../mailer");
 const Message = require("../models/Message");
+const { Resend } = require("resend");
+
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 router.post("/", async (req, res) => {
   console.log("Request received:", req.body);
@@ -9,9 +11,9 @@ router.post("/", async (req, res) => {
   try {
     const message = await Message.create(req.body);
 
-     const info = await transporter.sendMail({
-      from: process.env.EMAIL_USER,
-      to: process.env.EMAIL_USER,
+     const info = await resend.emails.send({
+  from: "onboarding@resend.dev",
+  to: "av6821246@gmail.com",
       subject: `New Portfolio Message: ${req.body.subject}`,
      html: `
 <div style="font-family: Arial, sans-serif">
