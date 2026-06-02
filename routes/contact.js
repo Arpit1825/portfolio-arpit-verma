@@ -4,6 +4,8 @@ const router = express.Router();
 const Message = require("../models/Message");
 
 router.post("/", async (req, res) => {
+  console.log("Request received:", req.body);
+
   try {
     const message = await Message.create(req.body);
 
@@ -12,6 +14,8 @@ router.post("/", async (req, res) => {
       data: message,
     });
   } catch (err) {
+    console.error(err);
+
     res.status(500).json({
       success: false,
       message: err.message,
