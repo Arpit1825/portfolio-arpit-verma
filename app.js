@@ -5,6 +5,7 @@ const mongoose=require('mongoose');
 const cors=require('cors');
 const contactRoute = require("./routes/contact");
 
+const PORT = process.env.PORT || 5000;
 
 app.use(cors());
 app.use(express.json());
@@ -23,6 +24,6 @@ app.get("/", (req, res) => {
 });
 
 
-app.listen(5000, () => {
-    console.log("Server Running on Port 5000");
+app.listen(PORT, () => {
+    console.log(`Server Running on Port ${PORT}`);
 });
