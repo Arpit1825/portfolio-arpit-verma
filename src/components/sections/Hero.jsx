@@ -1,15 +1,18 @@
 import { motion } from 'framer-motion';
 import { TypeAnimation } from 'react-type-animation';
 import { FiGithub, FiLinkedin, FiDownload, FiArrowRight, FiCode, FiMail } from 'react-icons/fi';
-import { SiReact, SiNodedotjs, SiPython, SiCplusplus, SiMongodb, SiJavascript } from 'react-icons/si';
+import { SiReact, SiNodedotjs, SiPython, SiCplusplus, SiMongodb, SiJavascript ,SiExpress} from 'react-icons/si';
 
 const floatingTechs = [
-  { Icon: SiReact, color: '#61DAFB', size: 28, x: -60, y: -40, delay: 0 },
-  { Icon: SiNodedotjs, color: '#68A063', size: 24, x: 60, y: -30, delay: 0.5 },
-  { Icon: SiPython, color: '#3776AB', size: 26, x: -50, y: 50, delay: 1 },
-  { Icon: SiCplusplus, color: '#00599C', size: 22, x: 65, y: 55, delay: 1.5 },
-  { Icon: SiMongodb, color: '#47A248', size: 22, x: -70, y: 10, delay: 0.8 },
-  { Icon: SiJavascript, color: '#F7DF1E', size: 20, x: 70, y: 10, delay: 1.2 },
+  { Icon: SiReact, color: '#61DAFB', size: 28, x: -120, y: -80, delay: 0 },
+
+  { Icon: SiNodedotjs, color: '#68A063', size: 24, x: 78, y: -80, delay: 0.5 },
+
+  { Icon: SiMongodb, color: '#47A248', size: 22, x: -120, y: 0, delay: 0.8 },
+
+  { Icon: SiExpress, color: '#FFFFFF', size: 22, x: 78, y: 0, delay: 1.1 },
+
+  { Icon: SiPython, color: '#3776AB', size: 26, x: -18, y: 120, delay: 1.4 },
 ];
 
 const stagger = {
@@ -192,12 +195,12 @@ export default function Hero() {
                 <p className="text-text-muted text-xs font-mono mt-1">CS (AI & ML) — PSIT</p>
                 <div className="mt-4 flex gap-3 text-center">
                   <div>
-                    <div className="text-xl font-bold gradient-text">170+</div>
+                    <div className="text-xl font-bold gradient-text">182+</div>
                     <div className="text-text-muted text-[10px] font-mono">LeetCode</div>
                   </div>
                   <div className="w-px bg-white/10" />
                   <div>
-                    <div className="text-xl font-bold gradient-text">3+</div>
+                    <div className="text-xl font-bold gradient-text">4+</div>
                     <div className="text-text-muted text-[10px] font-mono">Projects</div>
                   </div>
                   <div className="w-px bg-white/10" />
@@ -216,12 +219,12 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.5 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+          className="absolute mb-2 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
         >
-          <span className="text-text-muted text-xs font-mono">scroll</span>
+          <span className="ml-4 mt-8 text-text-muted text-xs font-mono">scroll</span>
           <div className="w-px h-10 overflow-hidden">
             <motion.div
-              className="w-full h-full"
+              className="w-full h-full "
               style={{ background: 'linear-gradient(180deg, #4f8eff, transparent)' }}
               animate={{ y: ['-100%', '200%'] }}
               transition={{ duration: 1.5, repeat: Infinity, ease: 'linear' }}
