@@ -61,7 +61,53 @@ export const techIcons = [
 
 export const projects = [
   {
-    id: 1,
+  id: 1,
+  title: "Smart Queue Management System",
+  description:
+    "Real-time queue management platform with QR code-based token tracking, multi-counter support, live queue updates, and analytics dashboard.",
+  longDesc:
+    "A full-stack Smart Queue Management System built to streamline customer flow in service environments. Features secure authentication, digital token generation, QR-based tracking, real-time updates using Socket.io, multi-counter queue handling, and operational analytics.",
+  tech: [
+    "Node.js",
+    "Express.js",
+    "MongoDB Atlas",
+    "Socket.io",
+    "JWT",
+    "EJS",
+    "Tailwind CSS"
+  ],
+  features: [
+    "JWT Authentication",
+    "QR Code Token Tracking",
+    "Real-Time Updates",
+    "Multi-Counter Queue Management",
+    "Analytics Dashboard",
+    "MongoDB Atlas Integration",
+    "Render Deployment"
+  ],
+  github: "https://github.com/Arpit1825/Queue-Management",
+  demo: "https://queue-management-68fv.onrender.com/",
+  featured: true,
+  badge: "Live & Deployed",
+  color: "#3b82f6",
+  gradient: "from-blue-500/20 to-cyan-500/20",
+   image: "/projects/queue.png",
+},
+   { id: 2,
+    title: "Smart Water Automation & Dosing System",
+    description: "Patent-backed IoT-based water quality monitoring and automated dosing system with real-time sensor processing, dashboard analytics, and automated chemical dosing.",
+    longDesc: "An innovative IoT solution using ESP32 microcontrollers for real-time water quality monitoring. The system automates chemical dosing based on sensor data and provides live dashboard analytics.",
+    tech: ["ESP32", "Python", "IoT", "Dashboard Dev", "Sensor Processing"],
+    features: ["ESP32 Integration", "Real-time Monitoring", "Dashboard Analytics", "Automated Chemical Dosing", "Sensor Data Processing"],
+    github: "https://github.com/Arpit1825/Smart-Water-Automation-Dosing-System",
+    demo: "https://smart-water-automation-dosing-syste.vercel.app/",
+    featured: true,
+    badge: "Patent Published – Indian Patent Journal (Feb 2026)",
+    color: "#00d4ff",
+    gradient: "from-cyan-500/20 to-blue-500/20",
+    image: "/projects/water.png",
+  },
+    {id: 3,
     title: "CryptoTracker",
     description: "Real-time cryptocurrency tracking platform monitoring 500+ cryptocurrencies with live price data, historical trend analysis, and interactive charts.",
     longDesc: "Built with React and Redux Toolkit, this platform integrates the CoinGecko API to deliver live crypto data. Features include portfolio tracking, price alerts, and interactive Chart.js visualizations.",
@@ -73,24 +119,10 @@ export const projects = [
     badge: null,
     color: "#f7931a",
     gradient: "from-orange-500/20 to-yellow-500/20",
+    image: "/projects/crypto.png",
   },
   {
-    id: 2,
-    title: "Smart Water Automation & Dosing System",
-    description: "Patent-backed IoT-based water quality monitoring and automated dosing system with real-time sensor processing, dashboard analytics, and automated chemical dosing.",
-    longDesc: "An innovative IoT solution using ESP32 microcontrollers for real-time water quality monitoring. The system automates chemical dosing based on sensor data and provides live dashboard analytics.",
-    tech: ["ESP32", "Python", "IoT", "Dashboard Dev", "Sensor Processing"],
-    features: ["ESP32 Integration", "Real-time Monitoring", "Dashboard Analytics", "Automated Chemical Dosing", "Sensor Data Processing"],
-    github: "https://github.com/Arpit1825/Smart-Water-Automation-Dosing-System",
-    demo: "#",
-    featured: true,
-    badge: "Patent Published – Indian Patent Journal (Feb 2026)",
-    color: "#00d4ff",
-    gradient: "from-cyan-500/20 to-blue-500/20",
-    large: true,
-  },
-  {
-    id: 3,
+    id: 4,
     title: "Travel In-Depth",
     description: "Sustainable travel guide platform promoting eco-friendly tourism with destination insights, sustainability recommendations, and a fully responsive design.",
     longDesc: "A modular, responsive travel platform that highlights sustainable tourism practices. Built with vanilla web technologies for maximum compatibility and fast load times.",
@@ -102,13 +134,14 @@ export const projects = [
     badge: null,
     color: "#22d3ee",
     gradient: "from-emerald-500/20 to-teal-500/20",
-  },
+    image: "/projects/travel.png",
+  }
 ];
 
 export const achievements = [
   {
     icon: "code",
-    title: "175+ DSA Problems",
+    title: "182+ DSA Problems",
     subtitle: "Solved on LeetCode",
     description: "Diving into competitive programming practice across arrays, trees, graphs, DP.",
     color: "#f7931a",

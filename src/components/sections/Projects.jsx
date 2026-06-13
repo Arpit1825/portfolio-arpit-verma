@@ -46,9 +46,13 @@ function ProjectCard({ project, index }) {
       <div className={`relative overflow-hidden ${isLarge ? 'h-48' : 'h-36'}`}
         style={{ background: `linear-gradient(135deg, ${project.gradient?.replace('from-', '').replace('to-', '') || '#1a1a2e'})` }}>
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="text-6xl opacity-20">
-            {project.id === 1 ? '📈' : project.id === 2 ? '💧' : '✈️'}
-          </div>
+          <div className="h-32 w-full overflow-hidden rounded-lg mb-4">
+  <img
+    src={project.image}
+    alt={project.title}
+    className="w-full h-full object-cover"
+  />
+</div>
         </div>
         <div className="absolute inset-0"
           style={{ background: `radial-gradient(circle at 30% 50%, ${project.color}15, transparent 70%)` }} />
