@@ -45,9 +45,11 @@ export const skills = {
   ],
   "Core Concepts": [
     { name: "DSA", level: 78 },
-    { name: "OOP", level: 82 },
-    { name: "API Integration", level: 85 },
+    { name: "OOPS", level: 75 },
+    { name: "DBMS", level: 85 },
+    { name: "Operating System", level: 75 },
     { name: "Problem Solving", level: 82 },
+    { name: "API Integration", level: 85 },
   ],
 };
 

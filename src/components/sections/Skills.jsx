@@ -161,7 +161,7 @@ export default function Skills() {
         >
           <div className="text-center text-text-secondary text-sm font-mono mb-6">Developer Tools & Environments</div>
           <div className="flex flex-wrap justify-center gap-3">
-            {['Git', 'GitHub', 'VS Code', 'Jupyter Notebook', 'Google Colab', 'Postman', 'Linux', 'NPM'].map(tool => (
+            {['Git', 'GitHub', 'VS Code', 'Jupyter Notebook', 'Google Colab', 'Postman', 'NPM'].map(tool => (
               <div key={tool} className="px-4 py-2 glass rounded-xl text-sm text-text-secondary hover:text-white transition-all"
                 style={{ border: '1px solid rgba(255,255,255,0.06)' }}>
                 {tool}

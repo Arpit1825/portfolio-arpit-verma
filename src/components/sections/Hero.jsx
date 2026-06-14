@@ -4,11 +4,11 @@ import { FiGithub, FiLinkedin, FiDownload, FiArrowRight, FiCode, FiMail } from '
 import { SiReact, SiNodedotjs, SiPython, SiCplusplus, SiMongodb, SiJavascript ,SiExpress} from 'react-icons/si';
 
 const floatingTechs = [
-  { Icon: SiReact, color: '#61DAFB', size: 28, x: -120, y: -80, delay: 0 },
+  { Icon: SiReact, color: '#61DAFB', size: 28, x: -128, y: -80, delay: 0 },
 
   { Icon: SiNodedotjs, color: '#68A063', size: 24, x: 78, y: -80, delay: 0.5 },
 
-  { Icon: SiMongodb, color: '#47A248', size: 22, x: -120, y: 0, delay: 0.8 },
+  { Icon: SiMongodb, color: '#47A248', size: 22, x: -128, y: 0, delay: 0.8 },
 
   { Icon: SiExpress, color: '#FFFFFF', size: 22, x: 78, y: 0, delay: 1.1 },
 
@@ -79,8 +79,6 @@ export default function Hero() {
                   'MERN Stack Developer',
                   2000,
                   'Problem Solver',
-                  2000,
-                  'Full Stack Engineer',
                   2000,
                 ]}
                 wrapper="span"
@@ -221,15 +219,8 @@ export default function Hero() {
           transition={{ delay: 1.5 }}
           className="absolute mb-2 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
         >
-          <span className="ml-4 mt-8 text-text-muted text-xs font-mono">scroll</span>
-          <div className="w-px h-10 overflow-hidden">
-            <motion.div
-              className="w-full h-full "
-              style={{ background: 'linear-gradient(180deg, #4f8eff, transparent)' }}
-              animate={{ y: ['-100%', '200%'] }}
-              transition={{ duration: 1.5, repeat: Infinity, ease: 'linear' }}
-            />
-          </div>
+          
+         
         </motion.div>
       </div>
     </section>

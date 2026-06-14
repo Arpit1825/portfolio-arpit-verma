@@ -64,13 +64,13 @@ export default function Achievements() {
           className="grid grid-cols-3 gap-4 mb-12"
         >
           {[
-            { label: 'DSA Problems', value: 182, suffix: '+', color: '#f7931a' },
+            { label: 'DSA Problems', value: 200, suffix: '+', color: '#f7931a' },
             { label: 'Patents', value: 1, suffix: '', color: '#a855f7' },
             { label: 'Projects Built', value: 4, suffix: '+', color: '#4f8eff' },
           ].map((stat, i) => (
             <div key={i} className="card text-center"
               style={{ border: `1px solid ${stat.color}22` }}>
-              <div className="text-3xl sm:text-4xl font-black mb-1"
+              <div className="text-2xl sm:text-2xl font-black mb-1 flex justify-center"
                 style={{ color: stat.color }}>
                 {inView && <CountUp target={stat.value} suffix={stat.suffix} active={inView} />}
               </div>
