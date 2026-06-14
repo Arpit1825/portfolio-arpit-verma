@@ -34,7 +34,7 @@ export default function About() {
             Building the <span className="gradient-text">Future</span>
           </h2>
           <p className="text-text-secondary max-w-xl mx-auto">
-            A passionate CS student at the intersection of AI, web development, and systems thinking.
+            A passionate CS student at the intersection of AI, web development, and problem solving.
           </p>
         </motion.div>
 
@@ -52,7 +52,7 @@ export default function About() {
                   <span className="text-lg">👋</span> Who I Am
                 </h3>
                 <p className="text-text-secondary leading-relaxed text-sm">
-                  I'm a second-year Computer Science (AI & ML) student at PSIT Kanpur, passionate about
+                  I'm a third-year Computer Science (AI & ML) student at PSIT Kanpur, passionate about
                   building real-world software. I specialize in the MERN stack, have a knack for DSA,
                   and love exploring machine learning concepts.
                 </p>

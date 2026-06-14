@@ -193,7 +193,7 @@ export default function Hero() {
                 <p className="text-text-muted text-xs font-mono mt-1">CS (AI & ML) — PSIT</p>
                 <div className="mt-4 flex gap-3 text-center">
                   <div>
-                    <div className="text-xl font-bold gradient-text">182+</div>
+                    <div className="text-xl font-bold gradient-text">200+</div>
                     <div className="text-text-muted text-[10px] font-mono">LeetCode</div>
                   </div>
                   <div className="w-px bg-white/10" />
