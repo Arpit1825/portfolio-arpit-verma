@@ -11,7 +11,7 @@ const navLinks = [
 
 const socials = [
   { Icon: FiGithub, href: 'https://github.com/Arpit1825', label: 'GitHub' },
-  { Icon: FiLinkedin, href: 'https://linkedin.com/in/arpit-verma-687b3b332', label: 'LinkedIn' },
+  { Icon: FiLinkedin, href: 'https://linkedin.com/in/arpit-verma141', label: 'LinkedIn' },
   { Icon: FiCode, href: 'https://leetcode.com/code_x_arpit', label: 'LeetCode' },
 ];
 

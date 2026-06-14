@@ -119,7 +119,7 @@ export default function Hero() {
                 style={{ border: '1px solid rgba(255,255,255,0.06)' }}>
                 <FiGithub size={18} />
               </a>
-              <a href="https://linkedin.com/in/arpit-verma-687b3b332" target="_blank" rel="noreferrer"
+              <a href="https://linkedin.com/in/arpit-verma141" target="_blank" rel="noreferrer"
                 className="w-10 h-10 glass rounded-xl flex items-center justify-center text-text-secondary hover:text-white hover:border-accent-blue/40 transition-all"
                 style={{ border: '1px solid rgba(255,255,255,0.06)' }}>
                 <FiLinkedin size={18} />

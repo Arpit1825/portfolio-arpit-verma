@@ -6,7 +6,7 @@ import { FiMail, FiPhone, FiLinkedin, FiGithub, FiSend, FiCheck, FiCopy } from '
 const contactInfo = [
   { icon: FiMail, label: 'Email', value: 'av6821246@gmail.com', href: 'mailto:av6821246@gmail.com', copyable: true },
   { icon: FiPhone, label: 'Phone', value: '+91 7052501218', href: 'tel:+917052501218', copyable: true },
-  { icon: FiLinkedin, label: 'LinkedIn', value: 'linkedin.com/in/arpit-verma-687b3b332', href: 'https://linkedin.com/in/arpit-verma-687b3b332', copyable: false },
+  { icon: FiLinkedin, label: 'LinkedIn', value: 'https://linkedin.com/in/arpit-verma141', href: 'https://linkedin.com/in/arpit-verma141', copyable: false },
   { icon: FiGithub, label: 'GitHub', value: 'github.com/Arpit1825', href: 'https://github.com/Arpit1825', copyable: false },
 ];
 

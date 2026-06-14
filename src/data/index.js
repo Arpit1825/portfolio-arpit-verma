@@ -7,7 +7,7 @@ export const personalInfo = {
   phone: "+91 7052501218",
   location: "Kanpur, Uttar Pradesh",
   github: "https://github.com/Arpit1825",
-  linkedin: "https://linkedin.com/in/arpit-verma-687b3b332",
+  linkedin: "https://linkedin.com/in/arpit-verma141",
   leetcode: "https://leetcode.com/code_x_arpit",
   college: "Pranveer Singh Institute of Technology, Kanpur",
   degree: "B.Tech – Computer Science (AI & ML)",
@@ -198,7 +198,7 @@ export const timeline = [
   {
     year: "2024",
     title: "Frontend Development",
-    description: "Mastered HTML, CSS, JavaScript. Built Travel In-Depth as first full project.",
+    description: "Mastered HTML, CSS, JavaScript. Built Travel In-Depth as first full project .",
     icon: "code",
   },
   {
