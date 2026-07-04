@@ -43,14 +43,14 @@ function ProjectCard({ project, index }) {
         style={{ background: `linear-gradient(90deg, ${project.color}, transparent)` }} />
 
       {/* Project visual */}
-      <div className={`relative overflow-hidden ${isLarge ? 'h-48' : 'h-36'}`}
+      <div className={`relative overflow-hidden ${isLarge ? 'h-50' : 'h-36'}`}
         style={{ background: `linear-gradient(135deg, ${project.gradient?.replace('from-', '').replace('to-', '') || '#1a1a2e'})` }}>
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="h-32 w-full overflow-hidden rounded-lg mb-4">
+          <div className="h-72 w-full overflow-hidden rounded-lg mb-4">
   <img
     src={project.image}
     alt={project.title}
-    className="w-full h-full object-cover"
+    className="w-full h-full mt-20"
   />
 </div>
         </div>
@@ -60,7 +60,7 @@ function ProjectCard({ project, index }) {
         {/* Badge */}
         {project.badge && (
           <div className="absolute top-3 left-3 flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-mono"
-            style={{ background: 'rgba(168,85,247,0.2)', border: '1px solid rgba(168,85,247,0.3)', color: '#c084fc' }}>
+            style={{ background: 'rgba(183, 117, 246, 0.6)', border: '1px solid rgba(77, 3, 143, 0.3)', color: '#110c11' }}>
             <FiAward size={10} /> {project.badge}
           </div>
         )}

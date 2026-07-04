@@ -64,6 +64,71 @@ export const techIcons = [
 export const projects = [
   {
   id: 1,
+  title: "CivicAI — AI-Powered Smart Civic Incident Platform",
+
+  description:
+    "Developed and deployed an AI-powered civic incident reporting and smart governance platform.",
+
+  longDesc:
+    "A full-stack AI-powered civic incident response platform integrating Google Gemini AI, geospatial intelligence, multilingual conversational AI, and smart navigation for transparent civic issue reporting and resolution.",
+
+  tech: [
+    "React.js",
+    "Tailwind CSS",
+    "Node.js",
+    "Express.js",
+    "MongoDB Atlas",
+    "Google Gemini API",
+    "Google AI Studio",
+    "JWT",
+    "Cloudinary",
+    "Firebase",
+    "Leaflet",
+    "OpenStreetMap",
+    "OSRM"
+  ],
+
+  features: [
+    "Google Gemini AI Analysis",
+    "Multilingual AI Assistant (English/Hindi/Hinglish)",
+    "Automatic Issue Classification",
+    "Severity Detection & Priority Scoring",
+    "AI Generated Summaries",
+    "Interactive GIS Maps",
+    "Smart Navigation System",
+    "Citizen & Admin Dashboards",
+    "Gamification & Community Support",
+    "JWT Authentication"
+  ],
+
+  github: "https://github.com/Arpit1825/CivicAI",
+
+  demo: "https://civicai-hackathon-1db59.web.app/",
+
+  featured: true,
+
+  badge: "Google For Developers × Vibe2Ship Hackathon",
+
+  color: "#92b0e7",
+
+  gradient: "from-blue-500/20 to-cyan-500/20",
+
+  image: "/projects/landing-page.png",
+},{ id: 2,
+    title: "Smart Water Automation & Dosing System",
+    description: "Patent-backed IoT-based water quality monitoring and automated dosing system with real-time sensor processing, dashboard analytics, and automated chemical dosing.",
+    longDesc: "An innovative IoT solution using ESP32 microcontrollers for real-time water quality monitoring. The system automates chemical dosing based on sensor data and provides live dashboard analytics.",
+    tech: ["ESP32", "Python", "IoT", "MERN Dashboard", "Sensor Processing"],
+    features: ["ESP32 Integration", "Real-time Monitoring", "Dashboard Analytics", "Automated Chemical Dosing", "Sensor Data Processing"],
+    github: "https://github.com/Arpit1825/Smart-Water-Automation-Dosing-System",
+    demo: "https://smart-water-automation-dosing-syste.vercel.app/",
+    featured: true,
+    badge: "Patent Published – Indian Patent Journal (Feb 2026)",
+    color: "#00d4ff",
+    gradient: "from-cyan-500/20 to-blue-500/20",
+    image: "/projects/water.png",
+  },{
+  id: 3,
   title: "Smart Queue Management System",
   description:
     "Real-time queue management platform with QR code-based token tracking, multi-counter support, live queue updates, and analytics dashboard.",
@@ -95,21 +160,21 @@ export const projects = [
   gradient: "from-blue-500/20 to-cyan-500/20",
    image: "/projects/queue.png",
 },
-   { id: 2,
-    title: "Smart Water Automation & Dosing System",
-    description: "Patent-backed IoT-based water quality monitoring and automated dosing system with real-time sensor processing, dashboard analytics, and automated chemical dosing.",
-    longDesc: "An innovative IoT solution using ESP32 microcontrollers for real-time water quality monitoring. The system automates chemical dosing based on sensor data and provides live dashboard analytics.",
-    tech: ["ESP32", "Python", "IoT", "Dashboard Dev", "Sensor Processing"],
-    features: ["ESP32 Integration", "Real-time Monitoring", "Dashboard Analytics", "Automated Chemical Dosing", "Sensor Data Processing"],
-    github: "https://github.com/Arpit1825/Smart-Water-Automation-Dosing-System",
-    demo: "https://smart-water-automation-dosing-syste.vercel.app/",
+  {
+    id: 4,
+    title: "Travel In-Depth",
+    description: "Sustainable travel guide platform promoting eco-friendly tourism with destination insights, sustainability recommendations, and a fully responsive design.",
+    longDesc: "A modular, responsive travel platform that highlights sustainable tourism practices. Built with vanilla web technologies for maximum compatibility and fast load times.",
+    tech: ["React","Node.js","Mongo DB","Express","HTML", "CSS", "JavaScript",],
+    features: ["Destination Insights", "Sustainability Recommendations", "Responsive Design", "Modular Architecture"],
+    github: "https://github.com/Arpit1825/travel-in-depth",
+    demo: "https://travel-in-depth.vercel.app",
     featured: true,
-    badge: "Patent Published – Indian Patent Journal (Feb 2026)",
-    color: "#00d4ff",
-    gradient: "from-cyan-500/20 to-blue-500/20",
-    image: "/projects/water.png",
-  },
-    {id: 3,
+    badge: null,
+    color: "#22d3ee",
+    gradient: "from-emerald-500/20 to-teal-500/20",
+    image: "/projects/travel.png",
+  },  {id: 5,
     title: "CryptoTracker",
     description: "Real-time cryptocurrency tracking platform monitoring 500+ cryptocurrencies with live price data, historical trend analysis, and interactive charts.",
     longDesc: "Built with React and Redux Toolkit, this platform integrates the CoinGecko API to deliver live crypto data. Features include portfolio tracking, price alerts, and interactive Chart.js visualizations.",
@@ -122,28 +187,13 @@ export const projects = [
     color: "#f7931a",
     gradient: "from-orange-500/20 to-yellow-500/20",
     image: "/projects/crypto.png",
-  },
-  {
-    id: 4,
-    title: "Travel In-Depth",
-    description: "Sustainable travel guide platform promoting eco-friendly tourism with destination insights, sustainability recommendations, and a fully responsive design.",
-    longDesc: "A modular, responsive travel platform that highlights sustainable tourism practices. Built with vanilla web technologies for maximum compatibility and fast load times.",
-    tech: ["HTML", "CSS", "JavaScript"],
-    features: ["Destination Insights", "Sustainability Recommendations", "Responsive Design", "Modular Architecture"],
-    github: "https://github.com/Arpit1825/travel-in-depth",
-    demo: "https://travel-in-depth.vercel.app",
-    featured: true,
-    badge: null,
-    color: "#22d3ee",
-    gradient: "from-emerald-500/20 to-teal-500/20",
-    image: "/projects/travel.png",
   }
 ];
 
 export const achievements = [
   {
     icon: "code",
-    title: "182+ DSA Problems",
+    title: "200+ DSA Problems",
     subtitle: "Solved on LeetCode",
     description: "Diving into competitive programming practice across arrays, trees, graphs, DP.",
     color: "#f7931a",
@@ -157,6 +207,15 @@ export const achievements = [
     description: "IoT Water Automation & Dosing System — patent published nationally.",
     color: "#a855f7",
     count: 1,
+    suffix: "",
+  },
+  {
+    icon: "cert",
+    title: "Hackathon Participation",
+    subtitle: "GoogleforDevelopers x  Vibe2Ship",
+    description: "A full-stack AI-powered civic incident response platform integrating Google Gemini AI, geospatial intelligence, multilingual conversational AI, and smart navigation for transparent civic issue reporting and resolution.",
+    color: "#fb923c",
+    count: null,
     suffix: "",
   },
   {
