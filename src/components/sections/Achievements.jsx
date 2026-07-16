@@ -1,8 +1,8 @@
+import { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { FiCode, FiAward, FiStar, FiBookOpen, FiZap } from 'react-icons/fi';
+import { FiCode, FiAward, FiStar, FiZap, FiBookOpen } from 'react-icons/fi';
 import { achievements } from '../../data';
-import { useEffect, useRef, useState } from 'react';
 
 const iconMap = {
   code: FiCode,
@@ -36,78 +36,178 @@ function CountUp({ target, suffix, active }) {
 }
 
 export default function Achievements() {
-  const [ref, inView] = useInView({ threshold: 0.1, triggerOnce: true });
+  const [ref, inView] = useInView({ threshold: 0.05, triggerOnce: true });
+  const [leetcodeStats, setLeetcodeStats] = useState({
+    totalSolved: 205,
+    totalQuestions: 500,
+    easySolved: 90,
+    easyTotal: 150,
+    mediumSolved: 100,
+    mediumTotal: 250,
+    hardSolved: 15,
+    hardTotal: 100,
+    ranking: "152,431"
+  });
+
+  useEffect(() => {
+    fetch(`https://leetcode-stats-api.herokuapp.com/code_x_arpit`)
+      .then(res => res.json())
+      .then(data => {
+        if (data.status === "success") {
+          setLeetcodeStats({
+            totalSolved: data.totalSolved,
+            totalQuestions: data.totalQuestions,
+            easySolved: data.easySolved,
+            easyTotal: data.totalEasy,
+            mediumSolved: data.mediumSolved,
+            mediumTotal: data.totalMedium,
+            hardSolved: data.hardSolved,
+            hardTotal: data.totalHard,
+            ranking: data.ranking
+          });
+        }
+      });
+  }, []);
 
   return (
-    <section id="achievements" ref={ref} className="py-24 relative">
-      <div className="orb w-96 h-96 right-0 top-0" style={{ background: 'rgba(168,85,247,0.06)' }} />
+    <section id="achievements" ref={ref} className="py-24 relative border-t border-border">
+      <div className="absolute top-1/4 right-0 w-80 h-80 rounded-full bg-purple-500/5 blur-3xl pointer-events-none" />
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        {/* Header */}
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
+        
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <div className="section-tag mb-4">Achievements</div>
-          <h2 className="text-4xl sm:text-5xl font-black mb-4">
-            Milestones & <span className="gradient-text">Recognition</span>
+          <div className="section-tag mb-3">Milestones</div>
+          <h2 className="text-3xl sm:text-4xl font-bold font-heading tracking-tight text-text-primary">
+            Achievements & Code Stats
           </h2>
+          <p className="text-text-secondary text-sm sm:text-base max-w-xl mx-auto mt-2">
+            A real-time overview of my competitive programming metrics and national recognitions.
+          </p>
         </motion.div>
 
-        {/* Stats row */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="grid grid-cols-3 gap-4 mb-12"
+          className="border-card bg-surface mb-12"
         >
-          {[
-            { label: 'DSA Problems', value: 200, suffix: '+', color: '#f7931a' },
-            { label: 'Patents', value: 1, suffix: '', color: '#a855f7' },
-            { label: 'Projects Built', value: 4, suffix: '+', color: '#4f8eff' },
-          ].map((stat, i) => (
-            <div key={i} className="card text-center"
-              style={{ border: `1px solid ${stat.color}22` }}>
-              <div className="text-2xl sm:text-2xl font-black mb-1 flex justify-center"
-                style={{ color: stat.color }}>
-                {inView && <CountUp target={stat.value} suffix={stat.suffix} active={inView} />}
+          <div className="flex flex-col md:flex-row items-center gap-8 justify-between">
+            <div className="flex items-center gap-6">
+              <div className="relative w-32 h-32 flex items-center justify-center">
+                <svg className="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
+                  <circle 
+                    cx="50" cy="50" r="40" 
+                    stroke="var(--color-border)" 
+                    strokeWidth="8" 
+                    fill="transparent" 
+                  />
+                  <circle 
+                    cx="50" cy="50" r="40" 
+                    stroke="var(--color-accent)" 
+                    strokeWidth="8" 
+                    fill="transparent" 
+                    strokeDasharray={251.2}
+                    strokeDashoffset={251.2 - (251.2 * (leetcodeStats.totalSolved / leetcodeStats.totalQuestions))}
+                    className="transition-all duration-1000 ease-out"
+                  />
+                </svg>
+                <div className="absolute flex flex-col items-center justify-center font-mono">
+                  <span className="text-2xl font-bold text-text-primary">
+                    {inView && <CountUp target={leetcodeStats.totalSolved} suffix="" active={inView} />}
+                  </span>
+                  <span className="text-[9px] text-text-secondary uppercase tracking-widest mt-0.5">
+                    Solved
+                  </span>
+                </div>
               </div>
-              <div className="text-text-muted text-xs font-mono">{stat.label}</div>
+
+              <div>
+                <h3 className="text-base font-bold font-heading text-text-primary">
+                  LeetCode Analytics
+                </h3>
+                <p className="text-xs text-text-secondary mt-1 font-mono">
+                  Handle: <a href="https://leetcode.com/code_x_arpit" target="_blank" rel="noreferrer" className="text-accent hover:underline">code_x_arpit</a>
+                </p>
+                <div className="text-[10px] text-text-secondary mt-3 font-mono">
+                  Global Rank: <span className="text-text-primary font-semibold">{leetcodeStats.ranking}</span>
+                </div>
+              </div>
             </div>
-          ))}
+
+            <div className="w-full md:w-1/2 space-y-4">
+              <div className="space-y-1">
+                <div className="flex justify-between items-center text-xs font-mono">
+                  <span className="text-emerald-500 font-semibold">Easy</span>
+                  <span className="text-text-secondary">{leetcodeStats.easySolved} / {leetcodeStats.easyTotal}</span>
+                </div>
+                <div className="w-full h-2 bg-nested rounded-full overflow-hidden border border-border/30">
+                  <div 
+                    className="h-full bg-emerald-500 rounded-full transition-all duration-1000 ease-out"
+                    style={{ width: inView ? `${(leetcodeStats.easySolved / leetcodeStats.easyTotal) * 100}%` : '0%' }}
+                  />
+                </div>
+              </div>
+
+              <div className="space-y-1">
+                <div className="flex justify-between items-center text-xs font-mono">
+                  <span className="text-yellow-500 font-semibold">Medium</span>
+                  <span className="text-text-secondary">{leetcodeStats.mediumSolved} / {leetcodeStats.mediumTotal}</span>
+                </div>
+                <div className="w-full h-2 bg-nested rounded-full overflow-hidden border border-border/30">
+                  <div 
+                    className="h-full bg-yellow-500 rounded-full transition-all duration-1000 ease-out"
+                    style={{ width: inView ? `${(leetcodeStats.mediumSolved / leetcodeStats.mediumTotal) * 100}%` : '0%' }}
+                  />
+                </div>
+              </div>
+
+              <div className="space-y-1">
+                <div className="flex justify-between items-center text-xs font-mono">
+                  <span className="text-red-500 font-semibold">Hard</span>
+                  <span className="text-text-secondary">{leetcodeStats.hardSolved} / {leetcodeStats.hardTotal}</span>
+                </div>
+                <div className="w-full h-2 bg-nested rounded-full overflow-hidden border border-border/30">
+                  <div 
+                    className="h-full bg-red-500 rounded-full transition-all duration-1000 ease-out"
+                    style={{ width: inView ? `${(leetcodeStats.hardSolved / leetcodeStats.hardTotal) * 100}%` : '0%' }}
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
         </motion.div>
 
-        {/* Achievement cards */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {achievements.map((a, i) => {
             const Icon = iconMap[a.icon] || FiAward;
             return (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 20 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 0.1 + i * 0.08 }}
-                whileHover={{ y: -3, transition: { duration: 0.2 } }}
-                className="card group"
-                style={{ border: `1px solid ${a.color}15` }}
+                transition={{ duration: 0.5, delay: 0.1 + i * 0.05 }}
+                className="border-card bg-surface group"
               >
                 <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
-                    style={{ background: `${a.color}15`, border: `1px solid ${a.color}22` }}>
-                    <Icon size={18} style={{ color: a.color }} />
+                  <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 bg-nested border border-border group-hover:border-accent transition-colors duration-300">
+                    <Icon size={18} className="text-accent" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-white text-sm">{a.title}</h3>
-                    <div className="text-xs font-mono mt-0.5" style={{ color: a.color }}>{a.subtitle}</div>
-                    <p className="text-text-muted text-xs mt-2 leading-relaxed">{a.description}</p>
+                    <h3 className="font-bold text-text-primary text-sm tracking-tight">{a.title}</h3>
+                    <div className="text-xs font-mono mt-0.5 text-accent">{a.subtitle}</div>
+                    <p className="text-text-secondary text-xs mt-3 leading-relaxed">{a.description}</p>
                   </div>
                 </div>
               </motion.div>
             );
           })}
         </div>
+
       </div>
     </section>
   );

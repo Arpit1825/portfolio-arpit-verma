@@ -1,8 +1,8 @@
 export const personalInfo = {
   name: "Arpit Verma",
   title: "AI & ML Undergraduate",
-  subtitle: "MERN Stack Developer | Problem Solver",
-  bio: "I build scalable web applications, solve algorithmic challenges, and create innovative AI-powered solutions.",
+  subtitle: "Building MERN Stack Projects | Problem Solver",
+  bio: "Exploring AI, Machine Learning, and modern web technologies while building projects that solve real-world problems.",
   email: "av6821246@gmail.com",
   phone: "+91 7052501218",
   location: "Kanpur, Uttar Pradesh",
@@ -17,13 +17,13 @@ export const personalInfo = {
 
 export const skills = {
   Programming: [
-    { name: "C++", level: 85 },
-    { name: "Python", level: 80 },
-    { name: "JavaScript", level: 88 },
-    { name: "C", level: 75 },
+    { name: "C++" },
+    { name: "Python"},
+    { name: "JavaScript" },
+    { name: "C"},
   ],
   Frontend: [
-    { name: "React.js", level: 85 },
+    { name: "React.js"},
     { name: "HTML5/CSS3", level: 90 },
     { name: "Tailwind CSS", level: 88 },
   ],
@@ -38,18 +38,20 @@ export const skills = {
     { name: "Firebase", level: 68 },
   ],
   "Libraries & Tools": [
-    { name: "Redux Toolkit", level: 50 },
-    { name: "NumPy/Pandas", level: 70 },
-    { name: "Chart.js", level: 75 },
-    { name: "Axios", level: 80 },
+     { name: "NumPy",},
+     { name: "Pandas",},
+     { name: "Matplotlib",},
+     { name: "Seaborn",},
+    { name: "Chart.js"},
+    { name: "Axios"},
   ],
   "Core Concepts": [
-    { name: "DSA", level: 78 },
-    { name: "OOPS", level: 75 },
-    { name: "DBMS", level: 85 },
-    { name: "Operating System", level: 75 },
-    { name: "Problem Solving", level: 82 },
-    { name: "API Integration", level: 85 },
+    { name: "DSA",},
+    { name: "OOPS",},
+    { name: "DBMS",},
+    { name: "Operating System" },
+    { name: "Problem Solving"},
+    { name: "API Integration"},
   ],
 };
 
@@ -63,58 +65,47 @@ export const techIcons = [
 
 export const projects = [
   {
-  id: 1,
-  title: "CivicAI — AI-Powered Smart Civic Incident Platform",
-
-  description:
-    "Developed and deployed an AI-powered civic incident reporting and smart governance platform.",
-
-  longDesc:
-    "A full-stack AI-powered civic incident response platform integrating Google Gemini AI, geospatial intelligence, multilingual conversational AI, and smart navigation for transparent civic issue reporting and resolution.",
-
-  tech: [
-    "React.js",
-    "Tailwind CSS",
-    "Node.js",
-    "Express.js",
-    "MongoDB Atlas",
-    "Google Gemini API",
-    "Google AI Studio",
-    "JWT",
-    "Cloudinary",
-    "Firebase",
-    "Leaflet",
-    "OpenStreetMap",
-    "OSRM"
-  ],
-
-  features: [
-    "Google Gemini AI Analysis",
-    "Multilingual AI Assistant (English/Hindi/Hinglish)",
-    "Automatic Issue Classification",
-    "Severity Detection & Priority Scoring",
-    "AI Generated Summaries",
-    "Interactive GIS Maps",
-    "Smart Navigation System",
-    "Citizen & Admin Dashboards",
-    "Gamification & Community Support",
-    "JWT Authentication"
-  ],
-
-  github: "https://github.com/Arpit1825/CivicAI",
-
-  demo: "https://civicai-hackathon-1db59.web.app/",
-
-  featured: true,
-
-  badge: "Google For Developers × Vibe2Ship Hackathon",
-
-  color: "#92b0e7",
-
-  gradient: "from-blue-500/20 to-cyan-500/20",
-
-  image: "/projects/landing-page.png",
-},{ id: 2,
+    id: 1,
+    title: "CivicAI — AI-Powered Smart Civic Incident Platform",
+    description: "Developed and deployed an AI-powered civic incident reporting and smart governance platform.",
+    longDesc: "A full-stack AI-powered civic incident response platform integrating Google Gemini AI, geospatial intelligence, multilingual conversational AI, and smart navigation for transparent civic issue reporting and resolution.",
+    tech: [
+      "React.js",
+      "Tailwind CSS",
+      "Node.js",
+      "Express.js",
+      "MongoDB Atlas",
+      "Google Gemini API",
+      "Google AI Studio",
+      "JWT",
+      "Cloudinary",
+      "Firebase",
+      "Leaflet",
+      "OpenStreetMap",
+      "OSRM"
+    ],
+    features: [
+      "Google Gemini AI Analysis",
+      "Multilingual AI Assistant (English/Hindi/Hinglish)",
+      "Automatic Issue Classification",
+      "Severity Detection & Priority Scoring",
+      "AI Generated Summaries",
+      "Interactive GIS Maps",
+      "Smart Navigation System",
+      "Citizen & Admin Dashboards",
+      "Gamification & Community Support",
+      "JWT Authentication"
+    ],
+    github: "https://github.com/Arpit1825/CivicAI",
+    demo: "https://civicai-hackathon-1db59.web.app/",
+    featured: true,
+    badge: "Google For Developers × Vibe2Ship Hackathon",
+    color: "#92b0e7",
+    gradient: "from-blue-500/20 to-cyan-500/20",
+    image: "/projects/landing-page.png",
+  },
+  {
+    id: 2,
     title: "Smart Water Automation & Dosing System",
     description: "Patent-backed IoT-based water quality monitoring and automated dosing system with real-time sensor processing, dashboard analytics, and automated chemical dosing.",
     longDesc: "An innovative IoT solution using ESP32 microcontrollers for real-time water quality monitoring. The system automates chemical dosing based on sensor data and provides live dashboard analytics.",
@@ -127,45 +118,44 @@ export const projects = [
     color: "#00d4ff",
     gradient: "from-cyan-500/20 to-blue-500/20",
     image: "/projects/water.png",
-  },{
-  id: 3,
-  title: "Smart Queue Management System",
-  description:
-    "Real-time queue management platform with QR code-based token tracking, multi-counter support, live queue updates, and analytics dashboard.",
-  longDesc:
-    "A full-stack Smart Queue Management System built to streamline customer flow in service environments. Features secure authentication, digital token generation, QR-based tracking, real-time updates using Socket.io, multi-counter queue handling, and operational analytics.",
-  tech: [
-    "Node.js",
-    "Express.js",
-    "MongoDB Atlas",
-    "Socket.io",
-    "JWT",
-    "EJS",
-    "Tailwind CSS"
-  ],
-  features: [
-    "JWT Authentication",
-    "QR Code Token Tracking",
-    "Real-Time Updates",
-    "Multi-Counter Queue Management",
-    "Analytics Dashboard",
-    "MongoDB Atlas Integration",
-    "Render Deployment"
-  ],
-  github: "https://github.com/Arpit1825/Queue-Management",
-  demo: "https://queue-management-68fv.onrender.com/",
-  featured: true,
-  badge: "Live & Deployed",
-  color: "#3b82f6",
-  gradient: "from-blue-500/20 to-cyan-500/20",
-   image: "/projects/queue.png",
-},
+  },
+  {
+    id: 3,
+    title: "Smart Queue Management System",
+    description: "Real-time queue management platform with QR code-based token tracking, multi-counter support, live queue updates, and analytics dashboard.",
+    longDesc: "A full-stack Smart Queue Management System built to streamline customer flow in service environments. Features secure authentication, digital token generation, QR-based tracking, real-time updates using Socket.io, multi-counter queue handling, and operational analytics.",
+    tech: [
+      "Node.js",
+      "Express.js",
+      "MongoDB Atlas",
+      "Socket.io",
+      "JWT",
+      "EJS",
+      "Tailwind CSS"
+    ],
+    features: [
+      "JWT Authentication",
+      "QR Code Token Tracking",
+      "Real-Time Updates",
+      "Multi-Counter Queue Management",
+      "Analytics Dashboard",
+      "MongoDB Atlas Integration",
+      "Render Deployment"
+    ],
+    github: "https://github.com/Arpit1825/Queue-Management",
+    demo: "https://queue-management-68fv.onrender.com/",
+    featured: true,
+    badge: "Live & Deployed",
+    color: "#3b82f6",
+    gradient: "from-blue-500/20 to-cyan-500/20",
+    image: "/projects/queue.png",
+  },
   {
     id: 4,
     title: "Travel In-Depth",
     description: "Sustainable travel guide platform promoting eco-friendly tourism with destination insights, sustainability recommendations, and a fully responsive design.",
     longDesc: "A modular, responsive travel platform that highlights sustainable tourism practices. Built with vanilla web technologies for maximum compatibility and fast load times.",
-    tech: ["React","Node.js","Mongo DB","Express","HTML", "CSS", "JavaScript",],
+    tech: ["React", "Node.js", "Mongo DB", "Express", "HTML", "CSS", "JavaScript"],
     features: ["Destination Insights", "Sustainability Recommendations", "Responsive Design", "Modular Architecture"],
     github: "https://github.com/Arpit1825/travel-in-depth",
     demo: "https://travel-in-depth.vercel.app",
@@ -174,7 +164,9 @@ export const projects = [
     color: "#22d3ee",
     gradient: "from-emerald-500/20 to-teal-500/20",
     image: "/projects/travel.png",
-  },  {id: 5,
+  },
+  {
+    id: 5,
     title: "CryptoTracker",
     description: "Real-time cryptocurrency tracking platform monitoring 500+ cryptocurrencies with live price data, historical trend analysis, and interactive charts.",
     longDesc: "Built with React and Redux Toolkit, this platform integrates the CoinGecko API to deliver live crypto data. Features include portfolio tracking, price alerts, and interactive Chart.js visualizations.",
@@ -212,7 +204,7 @@ export const achievements = [
   {
     icon: "cert",
     title: "Hackathon Participation",
-    subtitle: "GoogleforDevelopers x  Vibe2Ship",
+    subtitle: "GoogleforDevelopers x Vibe2Ship",
     description: "A full-stack AI-powered civic incident response platform integrating Google Gemini AI, geospatial intelligence, multilingual conversational AI, and smart navigation for transparent civic issue reporting and resolution.",
     color: "#fb923c",
     count: null,
@@ -257,18 +249,18 @@ export const timeline = [
   {
     year: "2024",
     title: "Frontend Development",
-    description: "Mastered HTML, CSS, JavaScript. Built Travel In-Depth as first full project .",
+    description: "Mastered HTML, CSS, JavaScript. Built Travel In-Depth as first full project.",
     icon: "code",
   },
   {
     year: "2025",
-    title: "JavaScript & React ",
+    title: "JavaScript & React",
     description: "Deep-dived into React ecosystem, Redux, Node.js, Express, MongoDB. Built CryptoTracker.",
     icon: "react",
   },
   {
     year: "2025-2026",
-    title: "MERN  IoT & Patent",
+    title: "MERN IoT & Patent",
     description: "Developed Smart Water Automation System. Patent published in Indian Patent Journal.",
     icon: "patent",
   },
@@ -300,3 +292,36 @@ export const education = {
     "Object-Oriented Programming",
   ],
 };
+
+export const currentlyBuilding = {
+  title: "VisionCart AI",
+  subtitle: "AI-powered object detection system for smart shopping carts.",
+  description: "An intelligent checkout system utilizing YOLOv10 object detection to scan multiple products instantly. Integrates a FastAPI backend for transaction validation and a PostgreSQL database to manage inventory and transactions.",
+  tech: ["YOLOv10", "FastAPI", "React", "SQL","TAILWIND CSS"],
+  status: "In Progress",
+  github: "https://github.com/Arpit1825/VisionCart-AI"
+};
+
+export const aboutCards = [
+  {
+    title: "Education",
+    desc: "B.Tech CSE (AI & ML) Pranveer Singh Institute of Technology",
+    icon: "education",
+  },
+  {
+    title: "Focused On",
+    desc: "AI/ML, DSA, Full Stack Development, System Design",
+    icon: "code",
+  },
+  {
+    title: "Current Focus",
+    desc: "Building real-world AI projects and improving problem solving",
+    icon: "target",
+  },
+  {
+    title: "Goal",
+    desc: personalInfo.careerGoal,
+    icon: "user",
+  }
+];
+

@@ -1,17 +1,15 @@
 import { useState, useRef } from 'react';
-import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
 import { FiMail, FiPhone, FiLinkedin, FiGithub, FiSend, FiCheck, FiCopy } from 'react-icons/fi';
+import { personalInfo } from '../../data';
 
 const contactInfo = [
-  { icon: FiMail, label: 'Email', value: 'av6821246@gmail.com', href: 'mailto:av6821246@gmail.com', copyable: true },
-  { icon: FiPhone, label: 'Phone', value: '+91 7052501218', href: 'tel:+917052501218', copyable: true },
-  { icon: FiLinkedin, label: 'LinkedIn', value: 'https://linkedin.com/in/arpit-verma141', href: 'https://linkedin.com/in/arpit-verma141', copyable: false },
-  { icon: FiGithub, label: 'GitHub', value: 'github.com/Arpit1825', href: 'https://github.com/Arpit1825', copyable: false },
+  { icon: FiMail, label: 'Email', value: personalInfo.email, href: `mailto:${personalInfo.email}`, copyable: true },
+  { icon: FiPhone, label: 'Phone', value: personalInfo.phone, href: `tel:${personalInfo.phone.replace(/[^+\d]/g, '')}`, copyable: true },
+  { icon: FiLinkedin, label: 'LinkedIn', value: 'Linkedin.com/in/arpit-verma-dev', href: personalInfo.linkedin, copyable: false },
+  { icon: FiGithub, label: 'GitHub', value: 'Github.com/Arpit1825', href: personalInfo.github, copyable: false },
 ];
 
 export default function Contact() {
-  const [ref, inView] = useInView({ threshold: 0.1, triggerOnce: true });
   const formRef = useRef(null);
   const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' });
   const [status, setStatus] = useState('idle'); // idle | sending | sent | error
@@ -20,42 +18,38 @@ export default function Contact() {
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
 
   const handleSubmit = async (e) => {
-  e.preventDefault();
+    e.preventDefault();
+    try {
+      setStatus("sending");
+      const response = await fetch(
+        "https://portfolio-arpit-verma.onrender.com/api/contact",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(form),
+        }
+      );
 
-  try {
-    setStatus("sending");
-
-     const response = await fetch(
-      "https://portfolio-arpit-verma.onrender.com/api/contact",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(form),
+      const data = await response.json();
+      if (response.ok) {
+        setStatus("sent");
+        setForm({
+          name: "",
+          email: "",
+          subject: "",
+          message: ""
+        });
+      } else {
+        setStatus("error");
+        console.error(data);
       }
-    );
-
-    const data = await response.json();
-
-    if (response.ok) {
-      setStatus("sent");
-
-      setForm({
-        name: "",
-        email: "",
-        subject: "",
-        message: ""
-      });
-    } else {
+    } catch (error) {
+      console.error(error);
       setStatus("error");
-      console.log(data);
     }
-  } catch (error) {
-    console.log(error);
-    setStatus("error");
-  }
-};
+  };
 
   const copyToClipboard = (text, label) => {
     navigator.clipboard.writeText(text).then(() => {
@@ -65,177 +59,182 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" ref={ref} className="py-24 relative">
-      <div className="orb w-80 h-80 -left-20 bottom-0" style={{ background: 'rgba(79,142,255,0.06)' }} />
-      <div className="orb w-64 h-64 right-0 top-1/3" style={{ background: 'rgba(168,85,247,0.06)' }} />
-
+    <section id="contact" className="py-24 relative border-t border-border">
       <div className="max-w-5xl mx-auto px-4 sm:px-6">
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <div className="section-tag mb-4">Get In Touch</div>
-          <h2 className="text-4xl sm:text-5xl font-black mb-4">
-            Let's <span className="gradient-text">Connect</span>
+        
+        {/* Section Header */}
+        <div className="text-center mb-16">
+          <div className="font-mono text-xs font-semibold tracking-wider text-accent uppercase mb-2">
+            Get In Touch
+          </div>
+          <h2 className="text-3xl sm:text-4xl font-bold font-heading tracking-tight text-text-primary">
+            Connect With Me
           </h2>
-          <p className="text-text-secondary max-w-xl mx-auto">
-            Open to internships, collaborations, and interesting projects. Let's build something great together.
+          <p className="text-text-secondary text-sm sm:text-base max-w-md mx-auto mt-2">
+            Always open to discussing software builds, ML opportunities, or project collaborations.
           </p>
-        </motion.div>
+        </div>
 
         <div className="grid lg:grid-cols-5 gap-8">
-          {/* Contact info sidebar */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="lg:col-span-2 space-y-4"
-          >
-            <div className="card mb-6"
-              style={{ background: 'linear-gradient(135deg, rgba(79,142,255,0.08), rgba(168,85,247,0.08))', border: '1px solid rgba(79,142,255,0.15)' }}>
-              <div className="text-2xl mb-3">👋</div>
-              <h3 className="font-bold text-white mb-2">Arpit Verma</h3>
-              <p className="text-text-secondary text-sm">
-                Currently a CS (AI & ML) student at PSIT, Kanpur. Always excited to discuss new ideas and opportunities.
+          {/* Contact Info */}
+          <div className="lg:col-span-2 space-y-4">
+            <div className="border-card bg-surface">
+              <span className="text-xl mb-3 block">👋</span>
+              <h3 className="text-base font-bold font-heading text-text-primary mb-1">
+                Arpit Verma
+              </h3>
+              <p className="text-xs text-text-secondary leading-relaxed mb-4">
+                Let's discuss standard web integrations, YOLO deployments, or algorithmic optimizations.
               </p>
-              <div className="mt-3 flex items-center gap-2 text-xs font-mono text-green-400">
-                <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
-                Available for opportunities
+              <div className="flex items-center gap-2 text-xs font-mono text-emerald-500">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                Available for internships
               </div>
             </div>
 
-            {contactInfo.map((info, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, x: -20 }}
-                animate={inView ? { opacity: 1, x: 0 } : {}}
-                transition={{ duration: 0.5, delay: 0.2 + i * 0.08 }}
-                className="card flex items-center gap-3 group"
+            {contactInfo.map((info) => (
+              <div
+                key={info.label}
+                className="border-card bg-surface flex items-center justify-between p-4"
+                style={{ padding: '16px' }}
               >
-                <div className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0"
-                  style={{ background: 'rgba(79,142,255,0.1)', border: '1px solid rgba(79,142,255,0.15)' }}>
-                  <info.icon size={15} className="text-accent-blue" />
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded border border-border flex items-center justify-center text-accent">
+                    <info.icon size={14} />
+                  </div>
+                  <div>
+                    <div className="font-mono text-[9px] text-text-secondary uppercase tracking-wider">
+                      {info.label}
+                    </div>
+                    <a
+                      href={info.href}
+                      target={info.href.startsWith('http') ? '_blank' : undefined}
+                      rel="noopener noreferrer"
+                      className="text-xs text-text-primary hover:text-accent font-medium transition-colors"
+                    >
+                      {info.value}
+                    </a>
+                  </div>
                 </div>
-                <div className="flex-1 min-w-0">
-                  <div className="text-text-muted text-[10px] font-mono">{info.label}</div>
-                  <a href={info.href} target={info.href.startsWith('http') ? '_blank' : undefined}
-                    rel="noreferrer"
-                    className="text-sm text-white truncate block hover:text-accent-blue transition-colors">
-                    {info.value}
-                  </a>
-                </div>
+
                 {info.copyable && (
                   <button
                     onClick={() => copyToClipboard(info.value, info.label)}
-                    className="w-7 h-7 flex items-center justify-center rounded-lg opacity-0 group-hover:opacity-100 transition-all"
-                    style={{ background: 'rgba(255,255,255,0.05)' }}
+                    className="p-1.5 rounded border border-border hover:border-accent text-text-secondary hover:text-accent transition-colors"
+                    aria-label={`Copy ${info.label}`}
                   >
-                    {copied === info.label ? <FiCheck size={12} className="text-green-400" /> : <FiCopy size={12} className="text-text-secondary" />}
+                    {copied === info.label ? (
+                      <FiCheck size={12} className="text-emerald-500" />
+                    ) : (
+                      <FiCopy size={12} />
+                    )}
                   </button>
                 )}
-              </motion.div>
+              </div>
             ))}
-          </motion.div>
+          </div>
 
-          {/* Contact form */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="lg:col-span-3"
-          >
-            <form ref={formRef} onSubmit={handleSubmit} className="card space-y-5"
-              style={{ border: '1px solid rgba(255,255,255,0.08)' }}>
-              <h3 className="font-bold text-white text-lg">Send a Message</h3>
+          {/* Contact Form */}
+          <div className="lg:col-span-3">
+            <form onSubmit={handleSubmit} className="border-card bg-surface space-y-5">
+              <h3 className="text-lg font-bold font-heading text-text-primary border-b border-border pb-3 mb-2">
+                Send a Message
+              </h3>
 
               <div className="grid sm:grid-cols-2 gap-4">
-                {[
-                  { name: 'name', label: 'Your Name', type: 'text', placeholder: 'Arpit Verma' },
-                  { name: 'email', label: 'Email Address', type: 'email', placeholder: 'arpit@example.com' },
-                ].map(f => (
-                  <div key={f.name}>
-                    <label className="text-text-secondary text-xs font-mono block mb-1.5">{f.label}</label>
-                    <input
-                      type={f.type}
-                      name={f.name}
-                      value={form[f.name]}
-                      onChange={handleChange}
-                      placeholder={f.placeholder}
-                      required
-                      className="w-full px-4 py-3 rounded-xl text-sm text-white placeholder-text-muted outline-none transition-all"
-                      style={{
-                        background: 'rgba(255,255,255,0.04)',
-                        border: '1px solid rgba(255,255,255,0.08)',
-                      }}
-                      onFocus={e => e.target.style.borderColor = 'rgba(79,142,255,0.4)'}
-                      onBlur={e => e.target.style.borderColor = 'rgba(255,255,255,0.08)'}
-                    />
-                  </div>
-                ))}
+                <div>
+                  <label className="text-text-secondary text-[10px] font-mono uppercase tracking-wider block mb-1.5">
+                    Your Name
+                  </label>
+                  <input
+                    type="text"
+                    name="name"
+                    value={form.name}
+                    onChange={handleChange}
+                    placeholder="Arpit Verma"
+                    required
+                    className="w-full px-3 py-2.5 rounded border border-border bg-bg text-text-primary text-xs outline-none focus:border-accent transition-colors"
+                  />
+                </div>
+                <div>
+                  <label className="text-text-secondary text-[10px] font-mono uppercase tracking-wider block mb-1.5">
+                    Email Address
+                  </label>
+                  <input
+                    type="email"
+                    name="email"
+                    value={form.email}
+                    onChange={handleChange}
+                    placeholder="arpit@example.com"
+                    required
+                    className="w-full px-3 py-2.5 rounded border border-border bg-bg text-text-primary text-xs outline-none focus:border-accent transition-colors"
+                  />
+                </div>
               </div>
 
               <div>
-                <label className="text-text-secondary text-xs font-mono block mb-1.5">Subject</label>
+                <label className="text-text-secondary text-[10px] font-mono uppercase tracking-wider block mb-1.5">
+                  Subject
+                </label>
                 <input
                   type="text"
                   name="subject"
                   value={form.subject}
                   onChange={handleChange}
-                  placeholder="Internship Opportunity / Project Collaboration"
+                  placeholder="Internship / Core Project Discussion"
                   required
-                  className="w-full px-4 py-3 rounded-xl text-sm text-white placeholder-text-muted outline-none transition-all"
-                  style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}
-                  onFocus={e => e.target.style.borderColor = 'rgba(79,142,255,0.4)'}
-                  onBlur={e => e.target.style.borderColor = 'rgba(255,255,255,0.08)'}
+                  className="w-full px-3 py-2.5 rounded border border-border bg-bg text-text-primary text-xs outline-none focus:border-accent transition-colors"
                 />
               </div>
 
               <div>
-                <label className="text-text-secondary text-xs font-mono block mb-1.5">Message</label>
+                <label className="text-text-secondary text-[10px] font-mono uppercase tracking-wider block mb-1.5">
+                  Message
+                </label>
                 <textarea
                   name="message"
                   value={form.message}
                   onChange={handleChange}
-                  placeholder="Hi Arpit, I'd love to discuss..."
+                  placeholder="Hello Arpit, I'd like to collaborate..."
                   rows={5}
                   required
-                  className="w-full px-4 py-3 rounded-xl text-sm text-white placeholder-text-muted outline-none transition-all resize-none"
-                  style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}
-                  onFocus={e => e.target.style.borderColor = 'rgba(79,142,255,0.4)'}
-                  onBlur={e => e.target.style.borderColor = 'rgba(255,255,255,0.08)'}
+                  className="w-full px-3 py-2.5 rounded border border-border bg-bg text-text-primary text-xs outline-none resize-none focus:border-accent transition-colors"
                 />
               </div>
 
               <button
                 type="submit"
                 disabled={status === 'sending' || status === 'sent'}
-                className="btn-primary w-full justify-center"
+                className="btn-primary w-full justify-center text-xs"
+                style={{ padding: '10px 16px' }}
               >
                 {status === 'sending' ? (
-                  <>
-                    <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                    Sending...
-                  </>
+                  <span className="flex items-center gap-2">
+                    <span className="w-3.5 h-3.5 border border-white/30 border-t-white rounded-full animate-spin" />
+                    Sending Telemetry...
+                  </span>
                 ) : status === 'sent' ? (
-                  <><FiCheck /> Message Sent!</>
+                  <span className="flex items-center gap-1.5">
+                    <FiCheck /> Telemetry Sent Successfully!
+                  </span>
                 ) : status === 'error' ? (
-                  'Error – Try Again'
+                  'System Error. Retrying...'
                 ) : (
-                  <><FiSend /> Send Message</>
+                  <span className="flex items-center gap-1.5">
+                    <FiSend /> Send Message
+                  </span>
                 )}
               </button>
 
               {status === 'sent' && (
-                <p className="text-green-400 text-sm text-center font-mono">
-                  ✓ Thanks! I'll get back to you soon.
+                <p className="text-emerald-500 text-[10px] font-mono text-center mt-2">
+                  ✓ Dispatch complete. I will respond to your message shortly.
                 </p>
               )}
             </form>
-          </motion.div>
+          </div>
         </div>
+
       </div>
     </section>
   );

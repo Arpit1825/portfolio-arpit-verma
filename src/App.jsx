@@ -1,40 +1,39 @@
-import { useState } from 'react';
-import { motion } from 'framer-motion';
-import Loader from './components/ui/Loader';
-import CustomCursor from './components/ui/CustomCursor';
-import ScrollProgress from './components/ui/ScrollProgress';
+import { useEffect } from 'react';
 import Navbar from './components/sections/Navbar';
 import Hero from './components/sections/Hero';
 import About from './components/sections/About';
 import Skills from './components/sections/Skills';
 import Projects from './components/sections/Projects';
-import Achievements from './components/sections/Achievements';
 import GitHub from './components/sections/GitHub';
+import Achievements from './components/sections/Achievements';
 import Contact from './components/sections/Contact';
 import Footer from './components/sections/Footer';
 
 export default function App() {
-  const [loaded, setLoaded] = useState(false);
+  useEffect(() => {
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    if (savedTheme === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, []);
+
   return (
-    <>
-      {!loaded && <Loader onDone={() => setLoaded(true)} />}
-      {loaded && (
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }} className="min-h-screen">
-          <CustomCursor />
-          <ScrollProgress />
-          <Navbar />
-          <main>
-            <Hero />
-            <About />
-            <Skills />
-            <Projects />
-            <Achievements />
-            <GitHub />
-            <Contact />
-          </main>
-          <Footer />
-        </motion.div>
-      )}
-    </>
+    <div className="min-h-screen flex flex-col justify-between bg-bg text-text-primary transition-colors duration-300">
+      <Navbar />
+      
+      <main className="flex-grow">
+        <Hero />
+        <About />
+        <Skills />
+        <Projects />
+        <GitHub />
+        <Achievements />
+        <Contact />
+      </main>
+      
+      <Footer />
+    </div>
   );
 }
