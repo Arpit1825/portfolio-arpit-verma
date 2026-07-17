@@ -151,7 +151,7 @@ export default function GitHub() {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-12 gap-6 mb-8">
+        <div className="grid md:grid-cols-1 gap-6 ">
           
           <motion.div
             initial={{ opacity: 0, y: 20 }}
