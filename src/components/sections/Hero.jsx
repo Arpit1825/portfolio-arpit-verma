@@ -37,7 +37,7 @@ export default function Hero() {
       
       <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10 text-center flex flex-col items-center">
         <div className="overflow-hidden rounded-full bg-red-300 w-[200px] h-[200px] border-2 hover:border-blue-500 transition-all duration-500">
-          <img src="/dist/projects/profile.jpeg" alt="imge"  className='h-full w-full object-cover'/>
+          <img src="projects/profile.jpeg" alt="Profile"  className='h-full w-full object-cover'/>
         </div>
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
