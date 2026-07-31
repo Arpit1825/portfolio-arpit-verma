@@ -36,8 +36,8 @@ export default function Hero() {
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.06)_0%,transparent_60%)] pointer-events-none" />
       
       <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10 text-center flex flex-col items-center">
-        <div className="overflow-hidden rounded-full bg-red-300 w-[200px] h-[200px] border-2 hover:border-blue-500 transition-all duration-500">
-          <img src="projects/profile.jpeg" alt="Profile"  className='h-full w-full object-cover'/>
+        <div className="overflow-hidden rounded-full w-[200px] h-[200px] border-2 hover:border-blue-500 transition-all duration-500">
+          <img src="/projects/profile.jpeg" alt="Profile"  className='h-full w-full object-cover'/>
         </div>
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
