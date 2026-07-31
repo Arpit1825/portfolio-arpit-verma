@@ -89,10 +89,10 @@ export default function Navbar() {
             }}
             className="flex items-center gap-2.5 group"
           >
-            <div className="w-8 h-8 rounded border border-border flex items-center justify-center text-xs font-mono font-bold bg-surface text-accent hover:border-accent transition-colors duration-200">
+            <div className="w-8 h-8 rounded-2xl border border-border flex items-center justify-center text-xs font-mono font-bold bg-surface text-accent hover:border-accent transition-colors duration-200">
               AV
             </div>
-            <span className="font-heading font-bold text-sm tracking-tight text-text-primary">
+            <span className="font-heading font-bold text-sm tracking-tight text-text-primary ">
               Arpit Verma
             </span>
           </a>
@@ -116,10 +116,10 @@ export default function Navbar() {
           <div className="hidden md:flex items-center gap-3">
             <button
               onClick={toggleTheme}
-              className="p-2 rounded border border-border hover:border-accent text-text-secondary hover:text-accent transition-colors duration-200"
+              className="p-2 rounded-2xl border border-border hover:border-accent text-text-secondary hover:text-accent transition-colors duration-200"
               aria-label="Toggle Theme"
             >
-              {theme === 'dark' ? <FiSun size={15} /> : <FiMoon size={15} />}
+              {theme === 'dark' ? <FiSun size={20} /> : <FiMoon size={20} />}
             </button>
             <a
               href="/resume.pdf"
@@ -134,10 +134,10 @@ export default function Navbar() {
           <div className="flex items-center gap-2 md:hidden">
             <button
               onClick={toggleTheme}
-              className="p-1.5 rounded border border-border text-text-secondary hover:text-text-primary"
+              className="p-2 rounded-3xl border border-border text-text-secondary hover:text-yellow-500"
               aria-label="Toggle Theme"
             >
-              {theme === 'dark' ? <FiSun size={15} /> : <FiMoon size={15} />}
+              {theme === 'dark' ? <FiSun size={17} /> : <FiMoon size={17} />}
             </button>
             <button
               onClick={() => setMenuOpen(!menuOpen)}
