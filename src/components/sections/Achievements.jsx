@@ -38,7 +38,7 @@ function CountUp({ target, suffix, active }) {
 export default function Achievements() {
   const [ref, inView] = useInView({ threshold: 0.05, triggerOnce: true });
   const [leetcodeStats, setLeetcodeStats] = useState({
-    totalSolved: 205,
+    totalSolved: 250,
     totalQuestions: 500,
     easySolved: 90,
     easyTotal: 150,
@@ -90,97 +90,7 @@ export default function Achievements() {
           </p>
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="border-card bg-surface mb-12"
-        >
-          <div className="flex flex-col md:flex-row items-center gap-8 justify-between">
-            <div className="flex items-center gap-6">
-              <div className="relative w-32 h-32 flex items-center justify-center">
-                <svg className="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
-                  <circle 
-                    cx="50" cy="50" r="40" 
-                    stroke="var(--color-border)" 
-                    strokeWidth="8" 
-                    fill="transparent" 
-                  />
-                  <circle 
-                    cx="50" cy="50" r="40" 
-                    stroke="var(--color-accent)" 
-                    strokeWidth="8" 
-                    fill="transparent" 
-                    strokeDasharray={251.2}
-                    strokeDashoffset={251.2 - (251.2 * (leetcodeStats.totalSolved / leetcodeStats.totalQuestions))}
-                    className="transition-all duration-1000 ease-out"
-                  />
-                </svg>
-                <div className="absolute flex flex-col items-center justify-center font-mono">
-                  <span className="text-2xl font-bold text-text-primary">
-                    {inView && <CountUp target={leetcodeStats.totalSolved} suffix="" active={inView} />}
-                  </span>
-                  <span className="text-[9px] text-text-secondary uppercase tracking-widest mt-0.5">
-                    Solved
-                  </span>
-                </div>
-              </div>
-
-              <div>
-                <h3 className="text-base font-bold font-heading text-text-primary">
-                  LeetCode Analytics
-                </h3>
-                <p className="text-xs text-text-secondary mt-1 font-mono">
-                  Handle: <a href="https://leetcode.com/code_x_arpit" target="_blank" rel="noreferrer" className="text-accent hover:underline">code_x_arpit</a>
-                </p>
-                <div className="text-[10px] text-text-secondary mt-3 font-mono">
-                  Global Rank: <span className="text-text-primary font-semibold">{leetcodeStats.ranking}</span>
-                </div>
-              </div>
-            </div>
-
-            <div className="w-full md:w-1/2 space-y-4">
-              <div className="space-y-1">
-                <div className="flex justify-between items-center text-xs font-mono">
-                  <span className="text-emerald-500 font-semibold">Easy</span>
-                  <span className="text-text-secondary">{leetcodeStats.easySolved} / {leetcodeStats.easyTotal}</span>
-                </div>
-                <div className="w-full h-2 bg-nested rounded-full overflow-hidden border border-border/30">
-                  <div 
-                    className="h-full bg-emerald-500 rounded-full transition-all duration-1000 ease-out"
-                    style={{ width: inView ? `${(leetcodeStats.easySolved / leetcodeStats.easyTotal) * 100}%` : '0%' }}
-                  />
-                </div>
-              </div>
-
-              <div className="space-y-1">
-                <div className="flex justify-between items-center text-xs font-mono">
-                  <span className="text-yellow-500 font-semibold">Medium</span>
-                  <span className="text-text-secondary">{leetcodeStats.mediumSolved} / {leetcodeStats.mediumTotal}</span>
-                </div>
-                <div className="w-full h-2 bg-nested rounded-full overflow-hidden border border-border/30">
-                  <div 
-                    className="h-full bg-yellow-500 rounded-full transition-all duration-1000 ease-out"
-                    style={{ width: inView ? `${(leetcodeStats.mediumSolved / leetcodeStats.mediumTotal) * 100}%` : '0%' }}
-                  />
-                </div>
-              </div>
-
-              <div className="space-y-1">
-                <div className="flex justify-between items-center text-xs font-mono">
-                  <span className="text-red-500 font-semibold">Hard</span>
-                  <span className="text-text-secondary">{leetcodeStats.hardSolved} / {leetcodeStats.hardTotal}</span>
-                </div>
-                <div className="w-full h-2 bg-nested rounded-full overflow-hidden border border-border/30">
-                  <div 
-                    className="h-full bg-red-500 rounded-full transition-all duration-1000 ease-out"
-                    style={{ width: inView ? `${(leetcodeStats.hardSolved / leetcodeStats.hardTotal) * 100}%` : '0%' }}
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </motion.div>
+        
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {achievements.map((a, i) => {

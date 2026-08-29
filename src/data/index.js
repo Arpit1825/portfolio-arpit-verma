@@ -158,7 +158,7 @@ export const projects = [
     tech: ["React", "Node.js", "Mongo DB", "Express", "HTML", "CSS", "JavaScript"],
     features: ["Destination Insights", "Sustainability Recommendations", "Responsive Design", "Modular Architecture"],
     github: "https://github.com/Arpit1825/travel-in-depth",
-    demo: "https://travel-in-depth.vercel.app",
+    demo: "https://github.com/Arpit1825/travel-in-depth",
     featured: true,
     badge: null,
     color: "#22d3ee",
@@ -185,7 +185,7 @@ export const projects = [
 export const achievements = [
   {
     icon: "code",
-    title: "200+ DSA Problems",
+    title: "250+ DSA Problems",
     subtitle: "Solved on LeetCode",
     description: "Diving into competitive programming practice across arrays, trees, graphs, DP.",
     color: "#f7931a",

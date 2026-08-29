@@ -42,11 +42,11 @@ export default function GitHub() {
   const [ref, inView] = useInView({ threshold: 0.1, triggerOnce: true });
   const [contributionsData, setContributionsData] = useState([]);
   const [stats, setStats] = useState({
-    totalCommits: 229,
-    pullRequests: 24,
-    starredRepos: 8,
-    issuesClosed: 4
-  });
+  totalCommits: 239,
+  pullRequests: 15,
+  starredRepos: 0,
+  issuesClosed: 4
+});
   const [languages, setLanguages] = useState([
     { name: 'JavaScript', percentage: 48, color: '#f7df1e' },
     { name: 'React.js', percentage: 32, color: '#61dafb' },
@@ -93,12 +93,10 @@ export default function GitHub() {
       .then(repos => {
         if (Array.isArray(repos)) {
           let totalStars = 0;
-          let openIssues = 0;
           const langCounts = {};
 
           repos.forEach(repo => {
             totalStars += repo.stargazers_count;
-            openIssues += repo.open_issues_count;
             if (repo.language) {
               langCounts[repo.language] = (langCounts[repo.language] || 0) + 1;
             }
@@ -115,12 +113,10 @@ export default function GitHub() {
             setLanguages(parsedLangs.slice(0, 4));
           }
 
-          setStats(prev => ({
-            ...prev,
-            starredRepos: totalStars,
-            issuesClosed: openIssues,
-            pullRequests: Math.max(12, Math.round(repos.length * 1.2))
-          }));
+         setStats(prev => ({
+  ...prev,
+  starredRepos: totalStars
+}));
         }
       })
       .catch(err => {
@@ -147,7 +143,7 @@ export default function GitHub() {
             Code Contributions
           </h2>
           <p className="text-text-secondary text-sm sm:text-base max-w-xl mx-auto mt-2">
-            A real-time overview of my repositories, commits, and language usage parsed directly from Github.
+            A realtime overview of my repositories, commits, and language usage parsed directly from Github.
           </p>
         </motion.div>
 
