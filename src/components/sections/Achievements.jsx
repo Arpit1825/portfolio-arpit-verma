@@ -49,25 +49,6 @@ export default function Achievements() {
     ranking: "152,431"
   });
 
-  useEffect(() => {
-    fetch(`https://leetcode-stats-api.herokuapp.com/code_x_arpit`)
-      .then(res => res.json())
-      .then(data => {
-        if (data.status === "success") {
-          setLeetcodeStats({
-            totalSolved: data.totalSolved,
-            totalQuestions: data.totalQuestions,
-            easySolved: data.easySolved,
-            easyTotal: data.totalEasy,
-            mediumSolved: data.mediumSolved,
-            mediumTotal: data.totalMedium,
-            hardSolved: data.hardSolved,
-            hardTotal: data.totalHard,
-            ranking: data.ranking
-          });
-        }
-      });
-  }, []);
 
   return (
     <section id="achievements" ref={ref} className="py-24 relative border-t border-border">
@@ -90,7 +71,7 @@ export default function Achievements() {
           </p>
         </motion.div>
 
-        
+       
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {achievements.map((a, i) => {
